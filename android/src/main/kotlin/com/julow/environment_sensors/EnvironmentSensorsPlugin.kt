@@ -48,6 +48,12 @@ class EnvironmentSensorsPlugin: FlutterPlugin, MethodCallHandler {
       val plugin = EnvironmentSensorsPlugin()
       plugin.setupEventChannels(registrar.context(), registrar.messenger())
     }
+    
+    @JvmStatic
+    fun registerWith(binding: FlutterPlugin.FlutterPluginBinding) {
+      val plugin = EnvironmentSensorsPlugin()
+      plugin.setupEventChannels(binding.applicationContext, binding.binaryMessenger)
+    }
   }
 
   override fun onAttachedToEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
